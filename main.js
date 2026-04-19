@@ -44,36 +44,47 @@ const weightedNumbers = [
 
 generateBtn.addEventListener('click', () => {
     resultDiv.innerHTML = '';
-    const numbers = new Set();
     
-    // 빈출 데이터에서 2~3개 번호 우선 추출하여 당첨 확률적 느낌 강화
-    const priorityCount = Math.floor(Math.random() * 2) + 2; 
-    while (numbers.size < priorityCount) {
-        const idx = Math.floor(Math.random() * weightedNumbers.length);
-        numbers.add(weightedNumbers[idx]);
-    }
-
-    // 나머지 번호 무작위 추출
-    while (numbers.size < 6) {
-        numbers.add(Math.floor(Math.random() * 45) + 1);
-    }
-
-    const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
-    sortedNumbers.forEach(number => {
-        const ball = document.createElement('div');
-        ball.classList.add('ball');
-        ball.textContent = number;
+    // Generate 5 sets of numbers
+    for (let i = 0; i < 5; i++) {
+        const numbers = new Set();
         
-        let color;
-        if (number <= 10) color = '#fbc400';
-        else if (number <= 20) color = '#69c8f2';
-        else if (number <= 30) color = '#ff7272';
-        else if (number <= 40) color = '#aaa';
-        else color = '#b0d840';
+        // 빈출 데이터에서 2~3개 번호 우선 추출
+        const priorityCount = Math.floor(Math.random() * 2) + 2; 
+        while (numbers.size < priorityCount) {
+            const idx = Math.floor(Math.random() * weightedNumbers.length);
+            numbers.add(weightedNumbers[idx]);
+        }
+
+        // 나머지 번호 무작위 추출
+        while (numbers.size < 6) {
+            numbers.add(Math.floor(Math.random() * 45) + 1);
+        }
+
+        const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
         
-        ball.style.backgroundColor = color;
-        resultDiv.appendChild(ball);
-    });
+        // Create a row container for each set
+        const row = document.createElement('div');
+        row.classList.add('ball-row');
+        
+        sortedNumbers.forEach(number => {
+            const ball = document.createElement('div');
+            ball.classList.add('ball');
+            ball.textContent = number;
+            
+            let color;
+            if (number <= 10) color = '#fbc400';
+            else if (number <= 20) color = '#69c8f2';
+            else if (number <= 30) color = '#ff7272';
+            else if (number <= 40) color = '#aaa';
+            else color = '#b0d840';
+            
+            ball.style.backgroundColor = color;
+            row.appendChild(ball);
+        });
+        
+        resultDiv.appendChild(row);
+    }
 });
 
 // --- AI Gender Test Logic ---
