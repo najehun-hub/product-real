@@ -37,10 +37,21 @@ body {
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: var(--container-shadow);
-    max-width: 500px;
-    width: 90%;
-    margin: 20px auto;
+    max-width: 650px;
+    width: 95%;
+    margin: 40px auto;
     transition: all 0.3s ease;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.site-intro {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
 
 /* Tabs */
@@ -55,7 +66,7 @@ body {
 
 .tab-btn {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     border: none;
     background: transparent;
     color: var(--secondary-color);
@@ -85,8 +96,32 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Info Content Section */
+.info-content {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--input-bg);
+    border-radius: 12px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.info-content h3 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.info-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color);
+}
+
 /* Common Elements */
-h1 { margin: 0 0 0.5rem; font-size: 1.8rem; text-align: center; }
+h1 { margin: 0 0 0.5rem; font-size: 2rem; text-align: center; }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; }
 .subtitle { color: var(--secondary-color); text-align: center; margin-bottom: 2rem; font-size: 0.95rem; }
 
 .main-btn {
@@ -168,11 +203,6 @@ h1 { margin: 0 0 0.5rem; font-size: 1.8rem; text-align: center; }
     cursor: pointer;
 }
 
-.webcam-box {
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
 #webcam-wrapper {
     width: 100%;
     max-width: 320px;
@@ -199,21 +229,12 @@ h1 { margin: 0 0 0.5rem; font-size: 1.8rem; text-align: center; }
 
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-.prediction-container {
-    text-align: center;
-    margin-top: 2rem;
-}
-
 .preview-img {
     width: 100%;
     max-width: 250px;
     border-radius: 15px;
     margin-bottom: 1.5rem;
     box-shadow: var(--container-shadow);
-}
-
-.label-list {
-    margin-bottom: 2rem;
 }
 
 .result-bar {
@@ -260,7 +281,7 @@ h1 { margin: 0 0 0.5rem; font-size: 1.8rem; text-align: center; }
 
 /* Forms & Comments */
 .contact-form { margin-top: 3rem; }
-.contact-form hr, #comments hr { border: 0; border-top: 1px solid var(--input-border); margin: 2rem 0; }
+.contact-form hr, #comments hr, .site-footer hr { border: 0; border-top: 1px solid var(--input-border); margin: 2rem 0; }
 .contact-form h3 { text-align: center; margin-bottom: 1.5rem; }
 .contact-form form { display: flex; flex-direction: column; gap: 12px; }
 
@@ -284,4 +305,69 @@ h1 { margin: 0 0 0.5rem; font-size: 1.8rem; text-align: center; }
     cursor: pointer;
 }
 
-#comments { margin-top: 2rem; }
+/* Footer Styles */
+.site-footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.footer-links {
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.footer-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.site-footer p {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    margin: 15% auto;
+    padding: 2.5rem;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: var(--container-shadow);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#modal-body h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+#modal-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
