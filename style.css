@@ -105,10 +105,15 @@ button#generate:hover {
     text-align: left;
 }
 
-.contact-form hr {
+.contact-form hr,
+#comments hr {
     border: 0;
     border-top: 1px solid var(--input-border);
     margin: 2rem 0;
+}
+
+#comments {
+    margin-top: 2rem;
 }
 
 .contact-form h3 {
