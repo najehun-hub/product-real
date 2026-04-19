@@ -14,26 +14,6 @@ tabBtns.forEach(btn => {
     });
 });
 
-// Theme Toggle Logic
-const themeToggle = document.getElementById('themeToggle');
-const updateThemeButton = () => {
-    const isLight = document.body.classList.contains('light-mode');
-    themeToggle.textContent = isLight ? 'Dark Mode' : 'Light Mode';
-};
-
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-}
-updateThemeButton();
-
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    const isLight = document.body.classList.contains('light-mode');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    updateThemeButton();
-});
-
 // --- Lotto Generator Logic ---
 const generateBtn = document.getElementById('generate');
 const resultDiv = document.getElementById('result');
