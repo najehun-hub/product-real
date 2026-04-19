@@ -3,15 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>AI & Tools - Gender Test & Lotto</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Teachable Machine & TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 </head>
 <body>
     <button id="themeToggle" class="theme-toggle">Dark Mode</button>
+    
     <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <button id="generate">Generate Numbers</button>
-        <div id="result"></div>
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="lotto">Lotto Generator</button>
+            <button class="tab-btn" data-tab="ai-test">Gender AI Test</button>
+        </nav>
+
+        <div id="lotto" class="tab-content active">
+            <h1>Lotto Number Generator</h1>
+            <button id="generate" class="main-btn">Generate Numbers</button>
+            <div id="result" class="ball-container"></div>
+        </div>
+
+        <div id="ai-test" class="tab-content">
+            <h1>Gender AI Test</h1>
+            <p class="subtitle">AI가 분석하는 나의 성별 관상 테스트</p>
+            
+            <div id="upload-area" class="upload-box">
+                <input type="file" id="image-upload" accept="image/*" hidden>
+                <div class="upload-placeholder">
+                    <span class="icon">📸</span>
+                    <p>클릭하거나 사진을 드래그하세요</p>
+                    <button class="upload-btn" onclick="document.getElementById('image-upload').click()">사진 업로드</button>
+                </div>
+            </div>
+
+            <div id="webcam-container" class="webcam-box" style="display: none;">
+                <div id="webcam-wrapper"></div>
+                <button id="capture-btn" class="main-btn">사진 촬영</button>
+            </div>
+
+            <div class="input-switch">
+                <button id="toggle-webcam" class="secondary-btn">카메라 사용하기</button>
+            </div>
+
+            <div id="loading" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>AI가 분석 중입니다...</p>
+            </div>
+
+            <div id="prediction-result" class="prediction-container" style="display: none;">
+                <img id="face-image" src="" alt="Captured image" class="preview-img">
+                <div id="label-container" class="label-list"></div>
+                <button id="retry-btn" class="secondary-btn">다시 시도</button>
+            </div>
+        </div>
 
         <div class="contact-form">
             <hr>
@@ -27,16 +72,7 @@
             <hr>
             <div id="disqus_thread"></div>
             <script>
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                (function() { // DON'T EDIT BELOW THIS LINE
+                (function() {
                 var d = document, s = d.createElement('script');
                 s.src = 'https://product-builder-d0rbydpslj.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
