@@ -43,7 +43,7 @@
                 
                 <section class="info-content">
                     <h3>로또 번호 추출 원리</h3>
-                    <p>본 서비스는 1부터 45까지의 숫자 중 중복되지 않는 6개의 숫자를 무작위 추출 알고리즘(Math.random)을 통해 생성합니다. 생성된 번호는 시각적인 편의를 위해 오름차순으로 자동 정렬됩니다.</p>
+                    <p>본 서비스는 최근 3년간의 로또 당첨 데이터 빈도 분석을 통해 추출 가중치를 적용한 하이브리드 알고리즘을 사용합니다. 빈출 번호와 무작위 번호를 조합하여 최적의 행운 조합을 생성합니다.</p>
                     <p><strong>팁:</strong> 로또는 확률 게임입니다. 본 도구는 재미와 편의를 위해 제공되며, 당첨을 보장하지는 않으나 여러분의 행운을 진심으로 기원합니다.</p>
                 </section>
             </div>
@@ -161,6 +161,10 @@
         }
         window.onclick = function(event) {
             if (event.target == document.getElementById('legalModal')) closeModal();
+        }
+    </script>
+</body>
+</html>if (event.target == document.getElementById('legalModal')) closeModal();
         }
     </script>
 </body>
