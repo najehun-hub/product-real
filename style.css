@@ -72,50 +72,6 @@ header h1 {
     letter-spacing: 0.05em;
 }
 
-.tabs {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 3.5rem;
-    background: var(--input-bg);
-    padding: 6px;
-    border-radius: 18px;
-    border: 1px solid var(--input-border);
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 14px;
-    border: none;
-    background: transparent;
-    color: var(--secondary-color);
-    cursor: pointer;
-    font-weight: 800;
-    border-radius: 14px;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-
-.tab-btn.active {
-    background: var(--gold-gradient);
-    color: #1a160d;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-}
-
-.tab-content {
-    display: none;
-    animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.tab-content.active {
-    display: block;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .tool-section { text-align: center; padding-bottom: 1rem; }
 .tool-section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 800; color: var(--primary-color); }
 
@@ -229,15 +185,6 @@ header h1 {
 }
 
 .info-content h3 { color: var(--primary-color); font-weight: 800; font-size: 1.25rem; }
-
-.upload-box {
-    border: 2px dashed var(--primary-color);
-    background: rgba(212, 175, 55, 0.03);
-    border-radius: 28px;
-    padding: 5rem 2rem;
-}
-
-.upload-placeholder .icon { font-size: 4.5rem; filter: drop-shadow(0 0 10px var(--primary-color)); }
 
 .contact-form { margin-top: 3rem; }
 .contact-form hr, #comments hr, .site-footer hr { border: 0; border-top: 1px solid var(--input-border); margin: 2rem 0; }
