@@ -131,6 +131,34 @@ header h1 {
     gap: 15px;
     justify-content: center;
     animation: fadeInRow 0.6s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+    position: relative;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.ball-row.premium-row {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.premium-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold-gradient);
+    color: #1a160d;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 2px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
 }
 
 @keyframes fadeInRow {

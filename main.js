@@ -14,9 +14,10 @@ generateBtn.addEventListener('click', () => {
     // Generate 5 sets of numbers
     for (let i = 0; i < 5; i++) {
         const numbers = new Set();
+        const isPremiumRow = (i === 2); // Mark the middle row as the Premium Recommended row
         
-        // 빈출 데이터에서 2~3개 번호 우선 추출
-        const priorityCount = Math.floor(Math.random() * 2) + 2; 
+        // 빈출 데이터에서 번호 추출 (Premium 행은 더 많은 가중치 적용)
+        const priorityCount = isPremiumRow ? 4 : (Math.floor(Math.random() * 2) + 2); 
         while (numbers.size < priorityCount) {
             const idx = Math.floor(Math.random() * weightedNumbers.length);
             numbers.add(weightedNumbers[idx]);
@@ -32,6 +33,13 @@ generateBtn.addEventListener('click', () => {
         // Create a row container for each set
         const row = document.createElement('div');
         row.classList.add('ball-row');
+        if (isPremiumRow) {
+            row.classList.add('premium-row');
+            const badge = document.createElement('div');
+            badge.classList.add('premium-badge');
+            badge.textContent = 'PREMIUM RECOMMENDED';
+            row.appendChild(badge);
+        }
         
         sortedNumbers.forEach(number => {
             const ball = document.createElement('div');
