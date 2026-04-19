@@ -16,20 +16,22 @@ tabBtns.forEach(btn => {
 
 // Theme Toggle Logic
 const themeToggle = document.getElementById('themeToggle');
-const updateThemeButton = (isDark) => {
-    themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+const updateThemeButton = () => {
+    const isLight = document.body.classList.contains('light-mode');
+    themeToggle.textContent = isLight ? 'Dark Mode' : 'Light Mode';
 };
 
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    updateThemeButton(true);
+if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
 }
+updateThemeButton();
 
 themeToggle.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    updateThemeButton(isDark);
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    updateThemeButton();
 });
 
 // --- Lotto Generator Logic ---
