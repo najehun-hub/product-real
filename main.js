@@ -11,10 +11,13 @@ const weightedNumbers = [
 generateBtn.addEventListener('click', () => {
     resultDiv.innerHTML = '';
     
+    // Randomly pick which row will be the premium one (0 to 4)
+    const premiumRowIndex = Math.floor(Math.random() * 5);
+    
     // Generate 5 sets of numbers
     for (let i = 0; i < 5; i++) {
         const numbers = new Set();
-        const isPremiumRow = (i === 2); // Mark the middle row as the Premium Recommended row
+        const isPremiumRow = (i === premiumRowIndex);
         
         // 빈출 데이터에서 번호 추출 (Premium 행은 더 많은 가중치 적용)
         const priorityCount = isPremiumRow ? 4 : (Math.floor(Math.random() * 2) + 2); 
