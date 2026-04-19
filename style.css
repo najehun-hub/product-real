@@ -175,6 +175,14 @@ header h1 {
 }
 
 /* Lotto Balls */
+.ball-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
 .ball {
     width: 54px; height: 54px;
     border-radius: 50%;
